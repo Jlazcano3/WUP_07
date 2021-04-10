@@ -58,13 +58,24 @@ According to the graph  there is correlation between the gender and death.It see
   
 ## Numerical results
 
+```{r}
+table1 <- xtabs(~result + Sex, data=kRdata)
+rowPerc(table1)
+colPerc(table1)
+```
 
-
+According to the numerical results males are dying at twice the rate than females.
 
 ## Inferential results 
 
-
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+fisher.test(table1)
+```
+If the null hypothesis was true and there was no correlation then there should be more female deaths, and fewer male deaths. The p-value 0.001 means that we reject the null hypothesis. 
 
 
 ## Conclusions
 
+If the null hypothesis was true and there was no correlation then there should be more female deaths, and fewer male deaths. The p-value 0.001 means that we reject the null hypothesis. Males are likely 2.3 times more likely to die than females. 
